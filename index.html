@@ -3,300 +3,499 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Erwin Fernando | Geodetic Engineering Portfolio</title>
+  <title>Erwin Fernando | Professional Portfolio</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* VARIABLES: Tema Terang (Light Theme) dengan Aksen Biru Dongker & Oranye Bata */
+    /* VARIABLES: Executive Minimalist Theme */
     :root {
-      --sidebar-bg: #0F172A; /* Biru Dongker Gelap */
-      --sidebar-text: #F8FAFC;
-      --main-bg: #F1F5F9; /* Abu-abu sangat terang */
-      --card-bg: #FFFFFF;
-      --text-main: #334155;
-      --text-light: #64748B;
-      --heading: #0F172A;
-      --accent: #EA580C; /* Oranye Bata khas Surveyor */
-      --accent-light: #FFEDD5;
-      --border-color: #E2E8F0;
+      --bg-pure-white: #FFFFFF;
+      --bg-off-white: #FAFAFA;
+      --text-black: #111827;
+      --text-gray: #4B5563;
+      --text-light: #9CA3AF;
+      --border-gray: #E5E7EB;
+      --corporate-blue: #0F4C81; /* Classic Business Blue */
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background-color: var(--main-bg); color: var(--text-main); line-height: 1.6; display: flex; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background-color: var(--bg-pure-white); 
+      color: var(--text-gray); 
+      line-height: 1.6; 
+      -webkit-font-smoothing: antialiased;
+    }
 
-    /* --- SIDEBAR KIRI --- */
-    .sidebar {
-      width: 320px;
-      height: 100vh;
-      background-color: var(--sidebar-bg);
-      color: var(--sidebar-text);
-      position: fixed;
-      top: 0; left: 0;
-      padding: 3rem 2rem;
+    /* --- TOP NAVIGATION --- */
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-gray);
+      z-index: 100;
+      padding: 1rem 0;
+    }
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-black);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-links { list-style: none; display: flex; gap: 2rem; }
+    .nav-links a {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--corporate-blue); }
+
+    /* --- GLOBAL CONTAINER --- */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    /* --- HERO SECTION (TITLE SLIDE) --- */
+    .hero {
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--corporate-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-gray);
+      max-width: 700px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--bg-pure-white);
+      background-color: var(--text-black);
+      border: 1px solid var(--text-black);
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background-color: var(--bg-pure-white);
+      color: var(--text-black);
+    }
+
+    /* --- SECTION TYPOGRAPHY --- */
+    .section-header {
+      border-bottom: 2px solid var(--text-black);
+      padding-bottom: 1rem;
+      margin-bottom: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-black);
+      letter-spacing: -0.02em;
+    }
+    .section-number {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    /* --- EXPERIENCE (2-COLUMN BUSINESS LAYOUT) --- */
+    .job-row {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .job-row:last-child { margin-bottom: 0; }
+    .job-meta {
+      border-top: 1px solid var(--border-gray);
+      padding-top: 1rem;
+    }
+    .job-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .job-company {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-black);
+    }
+    .job-details {
+      border-top: 1px solid var(--border-gray);
+      padding-top: 1rem;
+    }
+    .job-role {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-black);
+      margin-bottom: 1rem;
+    }
+    .job-bullets {
+      list-style-type: none;
+    }
+    .job-bullets li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+    .job-bullets li::before {
+      content: '■';
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      font-size: 0.6rem;
+      color: var(--corporate-blue);
+    }
+
+    /* --- PROJECTS & CERTIFICATIONS (GRID) --- */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .slide-card {
+      background-color: var(--bg-off-white);
+      border: 1px solid var(--border-gray);
+      padding: 2rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 4px 0 15px rgba(0,0,0,0.1);
-      z-index: 100;
+    }
+    .card-category {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-black);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .card-desc {
+      font-size: 0.9rem;
     }
 
-    .profile-section h1 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 0.5rem; }
-    .profile-section h1 span { color: var(--accent); }
-    .profile-section p { font-size: 0.85rem; color: #94A3B8; margin-bottom: 2rem; font-weight: 300; }
-
-    .nav-links { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-    .nav-links a {
-      color: var(--sidebar-text); text-decoration: none; font-size: 0.95rem; font-weight: 500;
-      letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.3s;
-      display: inline-block;
+    /* --- SKILLS SECTION (CLEAN LIST) --- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
     }
-    .nav-links a:hover { color: var(--accent); }
-    
-    .social-links { display: flex; flex-direction: column; gap: 0.5rem; }
-    .social-links a { color: #94A3B8; text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
-    .social-links a:hover { color: var(--accent-light); }
-
-    /* --- KONTEN KANAN --- */
-    .main-content { margin-left: 320px; padding: 4rem 5rem; width: calc(100% - 320px); max-width: 1100px; }
-
-    /* Styling Global Konten */
-    section { margin-bottom: 5rem; }
-    .section-title { font-family: 'Poppins', sans-serif; font-size: 2.2rem; color: var(--heading); margin-bottom: 2rem; position: relative; padding-bottom: 0.5rem; }
-    .section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 50px; height: 3px; background-color: var(--accent); }
-
-    /* About Section */
-    .about-text { font-size: 1.05rem; color: var(--text-main); line-height: 1.8; margin-bottom: 1.5rem; }
-
-    /* Experience Timeline - Desain Bersih */
-    .timeline { border-left: 2px solid var(--border-color); padding-left: 2rem; margin-top: 2rem; }
-    .timeline-item { position: relative; margin-bottom: 3rem; }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-item::before {
-      content: ''; position: absolute; left: -2.4rem; top: 0.3rem; width: 14px; height: 14px;
-      background-color: var(--card-bg); border: 3px solid var(--accent); border-radius: 50%;
+    .skill-category {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-black);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-gray);
+      padding-bottom: 0.5rem;
     }
-    
-    .job-title { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: var(--heading); margin-bottom: 0.2rem; }
-    .job-company { font-weight: 600; color: var(--accent); font-size: 0.9rem; margin-bottom: 0.2rem; }
-    .job-date { font-size: 0.8rem; color: var(--text-light); margin-bottom: 1rem; display: inline-block; background: var(--border-color); padding: 0.2rem 0.6rem; border-radius: 4px; }
-    .job-desc { list-style-type: disc; margin-left: 1.2rem; color: var(--text-main); font-size: 0.95rem; }
-    .job-desc li { margin-bottom: 0.4rem; }
+    .skill-list {
+      list-style: none;
+    }
+    .skill-list li {
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-gray);
+    }
 
-    /* Card Layout untuk Project & Sertifikasi */
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-    .card { background-color: var(--card-bg); padding: 1.8rem; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid var(--border-color); transition: transform 0.3s, box-shadow 0.3s; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-color: var(--accent); }
-    .card-badge { display: inline-block; background-color: var(--accent-light); color: var(--accent); font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 1rem; }
-    .card-title { font-family: 'Poppins', sans-serif; font-size: 1.05rem; color: var(--heading); margin-bottom: 0.8rem; line-height: 1.4; }
-    .card-desc { font-size: 0.85rem; color: var(--text-light); }
+    /* --- CONTACT SECTION --- */
+    .contact-wrapper {
+      background-color: var(--bg-off-white);
+      border: 1px solid var(--border-gray);
+      padding: 4rem;
+      text-align: center;
+    }
+    .contact-grid {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .contact-item h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .contact-item a, .contact-item p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-black);
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      color: var(--corporate-blue);
+      text-decoration: underline;
+    }
 
-    /* Skills - Tag/Pill Style */
-    .skills-wrapper { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-    .skill-tag { background-color: var(--card-bg); color: var(--heading); font-size: 0.9rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 50px; border: 1px solid var(--border-color); transition: all 0.3s; }
-    .skill-tag:hover { background-color: var(--heading); color: #fff; border-color: var(--heading); }
+    /* --- FOOTER --- */
+    footer {
+      border-top: 1px solid var(--border-gray);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
 
-    /* Contact Grid */
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .contact-item { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); text-align: left; }
-    .contact-label { font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 0.3rem; }
-    .contact-value { font-family: 'Poppins', sans-serif; font-size: 1rem; color: var(--heading); text-decoration: none; }
-    a.contact-value:hover { color: var(--accent); }
-
-    /* Responsive Design (Mobile & Tablet) */
-    @media (max-width: 900px) {
-      body { flex-direction: column; }
-      .sidebar { width: 100%; height: auto; position: relative; padding: 2rem; box-shadow: none; flex-direction: column; gap: 2rem; }
-      .nav-links { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
-      .main-content { margin-left: 0; width: 100%; padding: 3rem 2rem; }
-      .social-links { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 768px) {
+      .job-row { grid-template-columns: 1fr; gap: 1rem; }
+      .job-meta { border-top: none; padding-top: 0; }
+      .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-wrapper { padding: 2rem; }
+      .contact-grid { gap: 2rem; flex-direction: column; }
+      .nav-links { display: none; } /* Sembunyikan menu di mobile untuk kebersihan */
+      .hero-title { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <aside class="sidebar">
-    <div class="profile-section">
-      <h1>Erwin<br>Fernando<br><span>Jr. Manurung</span></h1>
-      <p>Geodetic Engineering Graduate<br>Mine Surveying & Spatial Analysis</p>
-      
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Erwin Fernando Jr.</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#academic">Projects & Certs</a></li>
+        <li><a href="#projects">Projects & Certs</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
+  </nav>
 
-    <div class="social-links">
-      <a href="mailto:erwin.fernandojr@gmail.com">erwin.fernandojr@gmail.com</a>
-      <a href="tel:+6285694308897">+62 856 9430 8897</a>
-      <a href="https://linkedin.com/in/erwinfernando" target="_blank">LinkedIn Profile ↗</a>
-      <p style="margin-top: 1rem; font-size: 0.75rem; color: #475569;">Semarang, Indonesia</p>
+  <header class="container hero">
+    <span class="hero-eyebrow">Professional Portfolio</span>
+    <h1 class="hero-title">Erwin Fernando<br>Junior Manurung</h1>
+    <p class="hero-subtitle">
+      Geodetic Engineering graduate combining practical expertise in mine surveying with strong academic leadership. Proficient in utilizing GNSS, TLS, and UAV technologies for precise topographic mapping and spatial data analysis.
+    </p>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </header>
+
+  <section id="experience" class="container" style="padding-top: 0;">
+    <div class="section-header">
+      <h2 class="section-title">Experience</h2>
+      <span class="section-number">01</span>
     </div>
-  </aside>
 
-  <main class="main-content">
-    
-    <section id="about">
-      <h2 class="section-title">Overview</h2>
-      <p class="about-text">
-        I am a dedicated <strong>Geodetic Engineering graduate</strong> combining practical expertise in mine surveying with strong academic leadership as a Photogrammetry and Remote Sensing Laboratory Assistant.
-      </p>
-      <p class="about-text">
-        My technical proficiency spans across acquiring data utilizing <strong>GNSS, Terrestrial Laser Scanners (TLS), and UAV technologies</strong>, seamlessly integrating them into precise topographic mapping and advanced spatial data analysis workflows. I am highly detail-oriented and thrive in both rugged field environments and analytical data processing environments.
-      </p>
-    </section>
-
-    <section id="experience">
-      <h2 class="section-title">Work Experience</h2>
-      
-      <div class="timeline">
-        
-        <div class="timeline-item">
-          <h3 class="job-title">Freelance Surveyor</h3>
-          <div class="job-company">CV. Prawira Inti Nusa</div>
-          <span class="job-date">Oct 2025 – Present</span>
-          <ul class="job-desc">
-            <li>Performed topographic surveys using CHCNAV GNSS for boundary mapping, elevation profiling, and site planning.</li>
-            <li>Conducted verticality and alignment measurements using total station for structural and construction quality control.</li>
-            <li>Acquired aerial imagery using the DJI Phantom 4 Pro for mapping, orthophoto generation, and surface condition assessment.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <h3 class="job-title">Mine Survey Intern</h3>
-          <div class="job-company">PT. Pamapersada Nusantara (PAMA)</div>
-          <span class="job-date">Jun 2025 – Aug 2025</span>
-          <ul class="job-desc">
-            <li>Conducted daily pit surface surveys using RIEGL TLS and Trimble GNSS, and acquired orthophotos using a UAV.</li>
-            <li>Processed topographic data, generated terrain models, and performed volumetric calculations using 12d Model.</li>
-            <li>Completed internship project on UAV-based haul road geometry evaluation for PAMA ABKL.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <h3 class="job-title">Laboratory Assistant (Photogrammetry & Remote Sensing)</h3>
-          <div class="job-company">Geodetic Engineering Dept, Diponegoro University</div>
-          <span class="job-date">Aug 2024 – Aug 2025</span>
-          <ul class="job-desc">
-            <li>Coordinated the execution of photogrammetry and remote sensing practical sessions based on module guidelines.</li>
-            <li>Prepared teaching materials and supervised data processing activities during practicum sessions.</li>
-            <li>Developed practical guidebooks and evaluated student performance through structured assessments.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <h3 class="job-title">Surveyor Intern</h3>
-          <div class="job-company">Tellus Meridian Survey</div>
-          <span class="job-date">Jan 2024 – Feb 2024</span>
-          <ul class="job-desc">
-            <li>Conducted LiDAR data acquisition using the DJI Matrice 350 drone system for topographic mapping.</li>
-            <li>Processed and classified point cloud data using TerraSolid for analysis and visualization.</li>
-            <li>Generated elevation models and contour maps from processed LiDAR datasets.</li>
-          </ul>
-        </div>
-
+    <div class="job-row">
+      <div class="job-meta">
+        <div class="job-date">Oct 2025 – Present</div>
+        <div class="job-company">CV. Prawira Inti Nusa</div>
       </div>
-    </section>
+      <div class="job-details">
+        <h3 class="job-role">Freelance Surveyor</h3>
+        <ul class="job-bullets">
+          <li>Performed topographic surveys using CHCNAV GNSS for boundary mapping, elevation profiling, and site planning.</li>
+          <li>Conducted verticality and alignment measurements using total station for structural and construction quality control.</li>
+          <li>Acquired aerial imagery using the DJI Phantom 4 Pro for mapping, orthophoto generation, and surface condition assessment.</li>
+        </ul>
+      </div>
+    </div>
 
-    <section id="academic">
+    <div class="job-row">
+      <div class="job-meta">
+        <div class="job-date">Jun 2025 – Aug 2025</div>
+        <div class="job-company">PT. Pamapersada Nusantara</div>
+      </div>
+      <div class="job-details">
+        <h3 class="job-role">Mine Survey Intern</h3>
+        <ul class="job-bullets">
+          <li>Conducted daily pit surface surveys using RIEGL TLS and Trimble GNSS, and acquired orthophotos using a UAV.</li>
+          <li>Processed topographic data, generated terrain models, and performed volumetric calculations using 12d Model.</li>
+          <li>Completed internship project on UAV-based haul road geometry evaluation for PAMA ABKL.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job-row">
+      <div class="job-meta">
+        <div class="job-date">Aug 2024 – Aug 2025</div>
+        <div class="job-company">Diponegoro University</div>
+      </div>
+      <div class="job-details">
+        <h3 class="job-role">Laboratory Assistant (Photogrammetry & Remote Sensing)</h3>
+        <ul class="job-bullets">
+          <li>Coordinated the execution of photogrammetry and remote sensing practical sessions based on module guidelines.</li>
+          <li>Prepared teaching materials and supervised data processing activities during practicum sessions.</li>
+          <li>Developed practical guidebooks and evaluated student performance through structured assessments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job-row">
+      <div class="job-meta">
+        <div class="job-date">Jan 2024 – Feb 2024</div>
+        <div class="job-company">Tellus Meridian Survey</div>
+      </div>
+      <div class="job-details">
+        <h3 class="job-role">Surveyor Intern</h3>
+        <ul class="job-bullets">
+          <li>Conducted LiDAR data acquisition using the DJI Matrice 350 drone system for topographic mapping.</li>
+          <li>Processed and classified point cloud data using TerraSolid for analysis and visualization.</li>
+          <li>Generated elevation models and contour maps from processed LiDAR datasets.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="container" style="padding-top: 0;">
+    <div class="section-header">
       <h2 class="section-title">Academic & Certifications</h2>
+      <span class="section-number">02</span>
+    </div>
+
+    <div class="grid-container">
       
-      <div class="card-grid">
-        
-        <div class="card">
-          <span class="card-badge">Final Project | GPA: 3.58</span>
-          <h3 class="card-title">Identification of Socio-Economic Activities as an Indicator of Regional Transformation</h3>
-          <p class="card-desc">Processed and analyzed spatial Nighttime Light (NTL) datasets to map and evaluate socio-economic growth and regional transformation patterns across Sumatra Island.</p>
-        </div>
-
-        <div class="card">
-          <span class="card-badge">Certification · Jan 2024</span>
-          <h3 class="card-title">Photogrammetry Data Processing</h3>
-          <p class="card-desc">Workshop by PT. Geosurvei Tekno Servis focusing on advanced processing of drone and aerial imagery into accurate 3D spatial models.</p>
-        </div>
-
-        <div class="card">
-          <span class="card-badge">Certification · Jan 2024</span>
-          <h3 class="card-title">Spatial Mapping and Analysis of Flood Hazard Risks</h3>
-          <p class="card-desc">Online Course by Langen Teknik Satria focusing on hydrological spatial analysis and disaster mitigation mapping (Case Study: Bandung).</p>
-        </div>
-
-        <div class="card">
-          <span class="card-badge">Certification · Dec 2023</span>
-          <h3 class="card-title">Spatial Modeling of Critical Land Using ArcGIS</h3>
-          <p class="card-desc">Online Course by Langen Teknik Satria on utilizing GIS software for environmental evaluation and critical land identification (Case Study: IKN).</p>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2 class="section-title">Technical Skills</h2>
-      
-      <div style="margin-bottom: 2rem;">
-        <h3 style="font-size: 1rem; color: var(--text-light); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Surveying & Mapping</h3>
-        <div class="skills-wrapper">
-          <span class="skill-tag">UAV Mapping</span>
-          <span class="skill-tag">GNSS Surveying</span>
-          <span class="skill-tag">Terrestrial Laser Scanning (TLS)</span>
-          <span class="skill-tag">LiDAR Data Acquisition</span>
-          <span class="skill-tag">Boundary Mapping</span>
-        </div>
+      <div class="slide-card">
+        <span class="card-category">Final Project · GPA: 3.58</span>
+        <h3 class="card-title">Identification of Socio-Economic Activities as an Indicator of Regional Transformation</h3>
+        <p class="card-desc">Processed and analyzed spatial Nighttime Light (NTL) datasets to map and evaluate socio-economic growth and regional transformation patterns across Sumatra Island.</p>
       </div>
 
-      <div style="margin-bottom: 2rem;">
-        <h3 style="font-size: 1rem; color: var(--text-light); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Software & Processing</h3>
-        <div class="skills-wrapper">
-          <span class="skill-tag">ArcGIS & QGIS</span>
-          <span class="skill-tag">AutoCAD Civil 3D & MAP</span>
-          <span class="skill-tag">12D Model</span>
-          <span class="skill-tag">TerraSolid</span>
-          <span class="skill-tag">RiScan Pro</span>
-          <span class="skill-tag">Agisoft Metashape</span>
-          <span class="skill-tag">Pix4D & DJI Terra</span>
-          <span class="skill-tag">Trimble Business Center</span>
-        </div>
+      <div class="slide-card">
+        <span class="card-category">Certification · Jan 2024</span>
+        <h3 class="card-title">Photogrammetry Data Processing</h3>
+        <p class="card-desc">Workshop by PT. Geosurvei Tekno Servis focusing on advanced processing of drone and aerial imagery into accurate 3D spatial models.</p>
       </div>
 
+      <div class="slide-card">
+        <span class="card-category">Certification · Jan 2024</span>
+        <h3 class="card-title">Spatial Mapping and Analysis of Flood Hazard Risks</h3>
+        <p class="card-desc">Online Course by Langen Teknik Satria focusing on hydrological spatial analysis and disaster mitigation mapping (Case Study: Bandung).</p>
+      </div>
+
+      <div class="slide-card">
+        <span class="card-category">Certification · Dec 2023</span>
+        <h3 class="card-title">Spatial Modeling of Critical Land Using ArcGIS</h3>
+        <p class="card-desc">Online Course by Langen Teknik Satria on utilizing GIS software for environmental evaluation and critical land identification (Case Study: IKN).</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills" class="container" style="padding-top: 0;">
+    <div class="section-header">
+      <h2 class="section-title">Core Expertise</h2>
+      <span class="section-number">03</span>
+    </div>
+
+    <div class="skills-grid">
       <div>
-        <h3 style="font-size: 1rem; color: var(--text-light); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Analysis & Programming</h3>
-        <div class="skills-wrapper">
-          <span class="skill-tag">Spatial Analysis</span>
-          <span class="skill-tag">Google Earth Engine (GEE)</span>
-          <span class="skill-tag">Python (GeoPandas, Folium)</span>
-          <span class="skill-tag">Remote Sensing</span>
-        </div>
+        <h3 class="skill-category">Surveying & Photogrammetry</h3>
+        <ul class="skill-list">
+          <li>UAV Mapping</li>
+          <li>GNSS Surveying</li>
+          <li>Terrestrial Laser Scanning (TLS)</li>
+          <li>LiDAR Data Acquisition</li>
+          <li>Boundary Mapping</li>
+        </ul>
       </div>
-    </section>
+      <div>
+        <h3 class="skill-category">Software & Processing</h3>
+        <ul class="skill-list">
+          <li>ArcGIS & QGIS</li>
+          <li>AutoCAD Civil 3D & MAP</li>
+          <li>12D Model</li>
+          <li>TerraSolid & RiScan Pro</li>
+          <li>Agisoft Metashape & Pix4D</li>
+          <li>DJI Terra & Trimble Business Center</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="skill-category">Analysis & Programming</h3>
+        <ul class="skill-list">
+          <li>Spatial Analysis</li>
+          <li>Google Earth Engine (GEE)</li>
+          <li>Python (GeoPandas, Folium)</li>
+          <li>Remote Sensing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact" style="margin-bottom: 2rem;">
-      <h2 class="section-title">Get in Touch</h2>
+  <section id="contact" class="container" style="padding-top: 0;">
+    <div class="contact-wrapper">
+      <h2 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Let's Connect</h2>
+      <p class="hero-subtitle" style="margin: 0 auto;">Open for professional opportunities and discussions.</p>
       
       <div class="contact-grid">
         <div class="contact-item">
-          <div class="contact-label">Email</div>
-          <a href="mailto:erwin.fernandojr@gmail.com" class="contact-value">erwin.fernandojr@gmail.com</a>
+          <h4>Email</h4>
+          <a href="mailto:erwin.fernandojr@gmail.com">erwin.fernandojr@gmail.com</a>
         </div>
         <div class="contact-item">
-          <div class="contact-label">Phone / WhatsApp</div>
-          <a href="tel:+6285694308897" class="contact-value">+62 856 9430 8897</a>
+          <h4>Phone / WhatsApp</h4>
+          <a href="tel:+6285694308897">+62 856 9430 8897</a>
         </div>
         <div class="contact-item">
-          <div class="contact-label">LinkedIn</div>
-          <a href="https://linkedin.com/in/erwinfernando" target="_blank" class="contact-value">Erwin Fernando ↗</a>
+          <h4>LinkedIn</h4>
+          <a href="https://linkedin.com/in/erwinfernando" target="_blank">Erwin Fernando</a>
         </div>
         <div class="contact-item">
-          <div class="contact-label">Location</div>
-          <div class="contact-value" style="color: var(--text-main);">Semarang, Indonesia</div>
+          <h4>Location</h4>
+          <p>Semarang, Indonesia</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <footer>
+    &copy; 2026 Erwin Fernando Junior Manurung. All rights reserved.
+  </footer>
 
 </body>
 </html>
