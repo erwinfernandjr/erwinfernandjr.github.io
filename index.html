@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erwin Fernando Junior Manurung | Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --light-text: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #bdc3c7;
+            margin-bottom: 1.5rem;
+        }
+
+        header p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ecf0f1;
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .item {
+            margin-bottom: 1.5rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+
+        .item-subtitle {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .item-date {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            color: #555;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .skill-category h4 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .item-header {
+                flex-direction: column;
+            }
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Erwin Fernando Junior Manurung</h1>
+        <h2>Geodetic Engineering Graduate | Mine Surveying & Spatial Analysis</h2>
+        <p>Geodetic Engineering graduate combining practical expertise in mine surveying with strong academic leadership as a Photogrammetry and Remote Sensing Laboratory Assistant. Proficient in utilizing GNSS, TLS, and UAV technologies for precise topographic mapping and spatial data analysis.</p>
+        <div class="contact-info">
+            <a href="mailto:erwin.fernandojr@gmail.com">erwin.fernandojr@gmail.com</a> | 
+            <span>+62 85694308897</span> | 
+            <span>Semarang, Indonesia</span> | 
+            <a href="https://linkedin.com/in/erwinfernando" target="_blank">LinkedIn</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="experience">
+            <h3>Work Experiences</h3>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Freelance Surveyor</span>
+                    <span class="item-date">Oct 2025 – Present</span>
+                </div>
+                <div class="item-subtitle">CV. Prawira Inti Nusa – Semarang, Indonesia</div>
+                <ul>
+                    <li>Performed topographic surveys using CHCNAV GNSS for boundary mapping, elevation profiling, and site planning.</li>
+                    <li>Conducted verticality and alignment measurements using total station for structural and construction quality control.</li>
+                    <li>Acquired aerial imagery using the DJI Phantom 4 Pro for mapping, orthophoto generation, and surface condition assessment.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Mine Survey Intern</span>
+                    <span class="item-date">Jun 2025 – Aug 2025</span>
+                </div>
+                <div class="item-subtitle">PT. Pamapersada Nusantara – Kutai Kartanegara, Indonesia</div>
+                <ul>
+                    <li>Conducted daily pit surface surveys using RIEGL TLS and Trimble GNSS, and acquired orthophotos using a UAV.</li>
+                    <li>Processed topographic data, generated terrain models, and performed volumetric calculations using 12d Model.</li>
+                    <li>Completed internship project on UAV-based haul road geometry evaluation for PAMA ABKL.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Laboratory Assistant of Photogrammetry and Remote Sensing Lab</span>
+                    <span class="item-date">Aug 2024 – Aug 2025</span>
+                </div>
+                <div class="item-subtitle">Geodetic Engineering Dept, Diponegoro University – Semarang, Indonesia</div>
+                <ul>
+                    <li>Coordinated the execution of photogrammetry and remote sensing practical sessions based on module guidelines and lecturers' instructions.</li>
+                    <li>Prepared teaching materials and supervised data processing activities during practicum sessions.</li>
+                    <li>Developed practical guidebooks and evaluated student performance through structured assessments.</li>
+                </ul>
+            </div>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Surveyor Intern</span>
+                    <span class="item-date">Jan 2024 – Feb 2024</span>
+                </div>
+                <div class="item-subtitle">Tellus Meridian Survey – Bandung, Indonesia</div>
+                <ul>
+                    <li>Conducted LiDAR data acquisition using the DJI Matrice 350 drone system for topographic mapping.</li>
+                    <li>Processed and classified point cloud data using TerraSolid for analysis and visualization.</li>
+                    <li>Generated elevation models and contour maps from processed LiDAR datasets.</li>
+                </ul>
+            </div>
+            
+        </section>
+
+        <section id="education-projects">
+            <h3>Education & Academic Projects</h3>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Geodetic Engineering, Bachelor's Degree</span>
+                    <span class="item-date">Aug 2022 – Apr 2026</span>
+                </div>
+                <div class="item-subtitle">Diponegoro University – Semarang, Indonesia</div>
+                <ul>
+                    <li><strong>GPA:</strong> 3.58/4.00</li>
+                    <li><strong>Final Project:</strong> Identification of Socio-Economic Activities as an Indicator of Regional Transformation Based on Nighttime Light (NTL) Data: A Case Study of Sumatra Island.</li>
+                    <li>Processed and analyzed spatial Nighttime Light (NTL) datasets to map and evaluate socio-economic growth and regional transformation patterns across Sumatra.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h3>Skills & Languages</h3>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Hard Skills</h4>
+                    <ul>
+                        <li><strong>Surveying:</strong> UAV Mapping, GNSS Surveying, Terrestrial Laser Scanning (TLS), LiDAR Data Acquisition.</li>
+                        <li><strong>Spatial Analysis & GIS:</strong> ArcGIS, QGIS, Google Earth Engine, Python.</li>
+                        <li><strong>Data Processing:</strong> RiScan Pro, DJI Terra, Agisoft Metashape, Pix4D, 12D Model, Trimble Business Center, AutoCAD Civil 3D.</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Soft Skills & Languages</h4>
+                    <ul>
+                        <li><strong>Soft Skills:</strong> Collaborative Teamwork, Analytical & Problem Solving, Cross-functional Communication.</li>
+                        <li><strong>Indonesian:</strong> Native Proficiency</li>
+                        <li><strong>English:</strong> Professional Working Proficiency (TOEFL: 513)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h3>Certifications</h3>
+            <ul>
+                <li><strong>Workshop: Photogrammetry Data Processing</strong> – PT. Geosurvei Tekno Servis (Jan 2024)</li>
+                <li><strong>Online Course: Spatial Mapping and Analysis of Flood Hazard Risks (Case Study: Bandung Regency)</strong> – Langen Teknik Satria (Jan 2024)</li>
+                <li><strong>Online Course: Spatial Modeling of Critical Land Using ArcGIS (Case Study: Nusantara Capital City / IKN)</strong> – Langen Teknik Satria (Dec 2023)</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Erwin Fernando Junior Manurung. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
