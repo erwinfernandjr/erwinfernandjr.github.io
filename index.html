@@ -7,16 +7,19 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
     /* VARIABLES: Executive Minimalist Theme */
     :root {
       --bg-pure-white: #FFFFFF;
-      --bg-off-white: #FAFAFA;
+      --bg-off-white: #f3f4f6; /* Warna abu-abu khas card GitProfile */
       --text-black: #111827;
       --text-gray: #4B5563;
       --text-light: #9CA3AF;
       --border-gray: #E5E7EB;
-      --corporate-blue: #0F4C81; /* Classic Business Blue */
+      --corporate-blue: #0F4C81; 
+      --git-blue: #3b82f6; /* Warna biru link judul GitProfile */
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,7 +74,7 @@
       padding: 5rem 2rem;
     }
 
-    /* --- HERO SECTION (TITLE SLIDE) --- */
+    /* --- HERO SECTION --- */
     .hero {
       padding-top: 8rem;
       padding-bottom: 6rem;
@@ -94,12 +97,12 @@
       margin-bottom: 1.5rem;
     }
     .hero-subtitle {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       color: var(--text-gray);
-      max-width: 700px;
+      max-width: 750px;
       line-height: 1.7;
       margin-bottom: 3rem;
-      font-weight: 300;
+      font-weight: 400;
     }
     .btn {
       display: inline-block;
@@ -110,6 +113,7 @@
       color: var(--bg-pure-white);
       background-color: var(--text-black);
       border: 1px solid var(--text-black);
+      border-radius: 0.3rem;
       transition: all 0.2s;
     }
     .btn:hover {
@@ -138,90 +142,119 @@
       color: var(--text-light);
     }
 
-    /* --- EXPERIENCE (2-COLUMN BUSINESS LAYOUT) --- */
-    .job-row {
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      gap: 3rem;
+    /* --- EXPERIENCE (GITPROFILE TIMELINE STYLE) --- */
+    .timeline-compact {
+      border-left: 2px solid var(--border-gray);
+      padding-left: 2rem;
+      margin-left: 0.5rem;
+    }
+    .timeline-item {
+      position: relative;
       margin-bottom: 3rem;
     }
-    .job-row:last-child { margin-bottom: 0; }
-    .job-meta {
-      border-top: 1px solid var(--border-gray);
-      padding-top: 1rem;
+    .timeline-item:last-child {
+      margin-bottom: 0;
     }
-    .job-date {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-light);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-    }
-    .job-company {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-black);
-    }
-    .job-details {
-      border-top: 1px solid var(--border-gray);
-      padding-top: 1rem;
-    }
-    .job-role {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-black);
-      margin-bottom: 1rem;
-    }
-    .job-bullets {
-      list-style-type: none;
-    }
-    .job-bullets li {
-      position: relative;
-      padding-left: 1.2rem;
-      margin-bottom: 0.6rem;
-      font-size: 0.95rem;
-    }
-    .job-bullets li::before {
-      content: '■';
+    .timeline-item::before {
+      content: '';
       position: absolute;
-      left: 0;
-      top: 0.1rem;
-      font-size: 0.6rem;
-      color: var(--corporate-blue);
+      left: -2.35rem; /* Menyesuaikan posisi titik ke garis */
+      top: 0.25rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: var(--corporate-blue);
+      border: 3px solid var(--bg-pure-white);
     }
-
-    /* --- PROJECTS & CERTIFICATIONS (GRID) --- */
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .slide-card {
-      background-color: var(--bg-off-white);
-      border: 1px solid var(--border-gray);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-category {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-light);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
-    }
-    .card-title {
+    .timeline-title {
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--text-black);
-      margin-bottom: 1rem;
-      line-height: 1.4;
+      margin-bottom: 0.2rem;
     }
-    .card-desc {
+    .timeline-company {
       font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--corporate-blue);
+      margin-bottom: 0.4rem;
     }
+    .timeline-date {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    /* --- PROJECTS & CERTIFICATIONS (GITPROFILE CARD STYLE) --- */
+    .git-project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .git-card {
+      background-color: var(--bg-off-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .git-card:hover {
+      border-color: var(--git-blue);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .git-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+    .git-card-icon {
+      color: var(--text-gray);
+      font-size: 1.1rem;
+    }
+    .git-card-title {
+      color: var(--git-blue);
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      line-height: 1.3;
+    }
+    .git-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-gray);
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .git-card-footer {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-gray);
+      font-weight: 500;
+    }
+    .git-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .git-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .git-dot.blue { background-color: var(--git-blue); }
+    .git-dot.orange { background-color: #f97316; }
+    .git-dot.green { background-color: #10b981; }
 
     /* --- SKILLS SECTION (CLEAN LIST) --- */
     .skills-grid {
@@ -252,6 +285,7 @@
     .contact-wrapper {
       background-color: var(--bg-off-white);
       border: 1px solid var(--border-gray);
+      border-radius: 0.75rem;
       padding: 4rem;
       text-align: center;
     }
@@ -292,12 +326,10 @@
 
     /* --- RESPONSIVE DESIGN --- */
     @media (max-width: 768px) {
-      .job-row { grid-template-columns: 1fr; gap: 1rem; }
-      .job-meta { border-top: none; padding-top: 0; }
       .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
       .contact-wrapper { padding: 2rem; }
       .contact-grid { gap: 2rem; flex-direction: column; }
-      .nav-links { display: none; } /* Sembunyikan menu di mobile untuk kebersihan */
+      .nav-links { display: none; } 
       .hero-title { font-size: 2.5rem; }
     }
   </style>
@@ -331,64 +363,36 @@
       <span class="section-number">01</span>
     </div>
 
-    <div class="job-row">
-      <div class="job-meta">
-        <div class="job-date">Oct 2025 – Present</div>
-        <div class="job-company">CV. Prawira Inti Nusa</div>
+    <div class="timeline-compact">
+      
+      <div class="timeline-item">
+        <h3 class="timeline-title">Freelance Surveyor</h3>
+        <div class="timeline-company">CV. Prawira Inti Nusa</div>
+        <div class="timeline-date">Oct 2025 – Present</div>
+        <p class="timeline-desc">Performed topographic surveys using CHCNAV GNSS for boundary mapping, elevation profiling, and site planning. Conducted verticality and alignment measurements using total station for structural and construction quality control. Acquired aerial imagery using the DJI Phantom 4 Pro.</p>
       </div>
-      <div class="job-details">
-        <h3 class="job-role">Freelance Surveyor</h3>
-        <ul class="job-bullets">
-          <li>Performed topographic surveys using CHCNAV GNSS for boundary mapping, elevation profiling, and site planning.</li>
-          <li>Conducted verticality and alignment measurements using total station for structural and construction quality control.</li>
-          <li>Acquired aerial imagery using the DJI Phantom 4 Pro for mapping, orthophoto generation, and surface condition assessment.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="job-row">
-      <div class="job-meta">
-        <div class="job-date">Jun 2025 – Aug 2025</div>
-        <div class="job-company">PT. Pamapersada Nusantara</div>
+      <div class="timeline-item">
+        <h3 class="timeline-title">Mine Survey Intern</h3>
+        <div class="timeline-company">PT. Pamapersada Nusantara (PAMA)</div>
+        <div class="timeline-date">Jun 2025 – Aug 2025</div>
+        <p class="timeline-desc">Conducted daily pit surface surveys using RIEGL TLS and Trimble GNSS, and acquired orthophotos using a UAV. Processed topographic data, generated terrain models, and performed volumetric calculations using 12d Model. Completed internship project on UAV-based haul road geometry evaluation.</p>
       </div>
-      <div class="job-details">
-        <h3 class="job-role">Mine Survey Intern</h3>
-        <ul class="job-bullets">
-          <li>Conducted daily pit surface surveys using RIEGL TLS and Trimble GNSS, and acquired orthophotos using a UAV.</li>
-          <li>Processed topographic data, generated terrain models, and performed volumetric calculations using 12d Model.</li>
-          <li>Completed internship project on UAV-based haul road geometry evaluation for PAMA ABKL.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="job-row">
-      <div class="job-meta">
-        <div class="job-date">Aug 2024 – Aug 2025</div>
-        <div class="job-company">Diponegoro University</div>
+      <div class="timeline-item">
+        <h3 class="timeline-title">Laboratory Assistant (Photogrammetry & Remote Sensing)</h3>
+        <div class="timeline-company">Diponegoro University</div>
+        <div class="timeline-date">Aug 2024 – Aug 2025</div>
+        <p class="timeline-desc">Coordinated the execution of photogrammetry and remote sensing practical sessions based on module guidelines. Prepared teaching materials, supervised data processing activities during practicum sessions, and evaluated student performance through structured assessments.</p>
       </div>
-      <div class="job-details">
-        <h3 class="job-role">Laboratory Assistant (Photogrammetry & Remote Sensing)</h3>
-        <ul class="job-bullets">
-          <li>Coordinated the execution of photogrammetry and remote sensing practical sessions based on module guidelines.</li>
-          <li>Prepared teaching materials and supervised data processing activities during practicum sessions.</li>
-          <li>Developed practical guidebooks and evaluated student performance through structured assessments.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="job-row">
-      <div class="job-meta">
-        <div class="job-date">Jan 2024 – Feb 2024</div>
-        <div class="job-company">Tellus Meridian Survey</div>
+      <div class="timeline-item">
+        <h3 class="timeline-title">Surveyor Intern</h3>
+        <div class="timeline-company">Tellus Meridian Survey</div>
+        <div class="timeline-date">Jan 2024 – Feb 2024</div>
+        <p class="timeline-desc">Conducted LiDAR data acquisition using the DJI Matrice 350 drone system for topographic mapping. Processed and classified point cloud data using TerraSolid for analysis and visualization. Generated elevation models and contour maps from processed LiDAR datasets.</p>
       </div>
-      <div class="job-details">
-        <h3 class="job-role">Surveyor Intern</h3>
-        <ul class="job-bullets">
-          <li>Conducted LiDAR data acquisition using the DJI Matrice 350 drone system for topographic mapping.</li>
-          <li>Processed and classified point cloud data using TerraSolid for analysis and visualization.</li>
-          <li>Generated elevation models and contour maps from processed LiDAR datasets.</li>
-        </ul>
-      </div>
+
     </div>
   </section>
 
@@ -398,30 +402,66 @@
       <span class="section-number">02</span>
     </div>
 
-    <div class="grid-container">
+    <div class="git-project-grid">
       
-      <div class="slide-card">
-        <span class="card-category">Research Publication</span>
-        <h3 class="card-title">Automated Multi-Class Pavement Distress Detection from UAV Imagery Using YOLO Deep Learning</h3>
-        <p class="card-desc">Investigated the performance of the YOLOv11 algorithm combined with 3D Digital Surface Models (DSM) to automate road damage detection and dimensional extraction, achieving highly precise vertical depth measurements for potholes and rutting.</p>
+      <div class="git-card">
+        <div class="git-card-header">
+          <i class="fa-solid fa-book-open git-card-icon"></i>
+          <span class="git-card-title">Automated Pavement Distress Detection</span>
+        </div>
+        <p class="git-card-desc">Research publication on utilizing YOLOv11 deep learning and UAV imagery (Digital Surface Models) to automate road damage detection and depth extraction.</p>
+        <div class="git-card-footer">
+          <div class="git-tag"><span class="git-dot blue"></span> Python / YOLO</div>
+          <div class="git-tag"><i class="fa-solid fa-star"></i> Publication</div>
+        </div>
       </div>
 
-      <div class="slide-card">
-        <span class="card-category">Certification · Jan 2024</span>
-        <h3 class="card-title">Photogrammetry Data Processing</h3>
-        <p class="card-desc">Workshop by PT. Geosurvei Tekno Servis focusing on advanced processing of drone and aerial imagery into accurate 3D spatial models.</p>
+      <div class="git-card">
+        <div class="git-card-header">
+          <i class="fa-solid fa-book-open git-card-icon"></i>
+          <span class="git-card-title">NTL Data for Regional Transformation</span>
+        </div>
+        <p class="git-card-desc">Final project processing spatial Nighttime Light (NTL) datasets to map and evaluate socio-economic growth patterns across Sumatra Island.</p>
+        <div class="git-card-footer">
+          <div class="git-tag"><span class="git-dot orange"></span> GEE / GIS</div>
+          <div class="git-tag"><i class="fa-solid fa-star"></i> Final Project</div>
+        </div>
       </div>
 
-      <div class="slide-card">
-        <span class="card-category">Certification · Jan 2024</span>
-        <h3 class="card-title">Spatial Mapping and Analysis of Flood Hazard Risks</h3>
-        <p class="card-desc">Online Course by Langen Teknik Satria focusing on hydrological spatial analysis and disaster mitigation mapping (Case Study: Bandung).</p>
+      <div class="git-card">
+        <div class="git-card-header">
+          <i class="fa-solid fa-certificate git-card-icon"></i>
+          <span class="git-card-title">Photogrammetry Data Processing</span>
+        </div>
+        <p class="git-card-desc">Workshop by PT. Geosurvei Tekno Servis focusing on advanced processing of drone and aerial imagery into accurate 3D spatial models.</p>
+        <div class="git-card-footer">
+          <div class="git-tag"><span class="git-dot green"></span> Certification</div>
+          <div class="git-tag">Jan 2024</div>
+        </div>
       </div>
 
-      <div class="slide-card">
-        <span class="card-category">Certification · Dec 2023</span>
-        <h3 class="card-title">Spatial Modeling of Critical Land Using ArcGIS</h3>
-        <p class="card-desc">Online Course by Langen Teknik Satria on utilizing GIS software for environmental evaluation and critical land identification (Case Study: IKN).</p>
+      <div class="git-card">
+        <div class="git-card-header">
+          <i class="fa-solid fa-certificate git-card-icon"></i>
+          <span class="git-card-title">Spatial Mapping of Flood Hazard Risks</span>
+        </div>
+        <p class="git-card-desc">Online Course by Langen Teknik Satria focusing on hydrological spatial analysis and disaster mitigation mapping (Case Study: Bandung).</p>
+        <div class="git-card-footer">
+          <div class="git-tag"><span class="git-dot green"></span> Certification</div>
+          <div class="git-tag">Jan 2024</div>
+        </div>
+      </div>
+
+      <div class="git-card">
+        <div class="git-card-header">
+          <i class="fa-solid fa-certificate git-card-icon"></i>
+          <span class="git-card-title">Spatial Modeling of Critical Land</span>
+        </div>
+        <p class="git-card-desc">Online Course by Langen Teknik Satria on utilizing GIS software for environmental evaluation and critical land identification (Case Study: IKN).</p>
+        <div class="git-card-footer">
+          <div class="git-tag"><span class="git-dot green"></span> Certification</div>
+          <div class="git-tag">Dec 2023</div>
+        </div>
       </div>
 
     </div>
