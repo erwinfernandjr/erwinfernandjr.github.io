@@ -245,20 +245,25 @@
       gap: 0.5rem;
     }
     
-    /* CSS Mask Map Indonesia yang 100% Akurat */
-    .indonesia-map-wrapper {
+    /* WADAH PETA DENGAN RASIO PAS AGAR KOORDINAT TIDAK LARI */
+    .map-aspect-ratio-box {
       position: relative;
       width: 100%;
       max-width: 900px;
       margin: 0 auto;
-      aspect-ratio: 2.5 / 1; 
-      background-color: #27374D; /* Warna abu-abu gelap untuk siluet pulau */
+      aspect-ratio: 1000 / 348; /* Rasio akurat sesuai ukuran vector mask-nya */
+    }
+
+    .indonesia-map-wrapper {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #27374D; /* Warna abu-abu gelap siluet pulau */
       -webkit-mask-image: url('https://cdn.jsdelivr.net/gh/djaiss/mapsicon@master/all/id/vector.svg');
-      -webkit-mask-size: contain;
+      -webkit-mask-size: 100% 100%;
       -webkit-mask-position: center;
       -webkit-mask-repeat: no-repeat;
       mask-image: url('https://cdn.jsdelivr.net/gh/djaiss/mapsicon@master/all/id/vector.svg');
-      mask-size: contain;
+      mask-size: 100% 100%;
       mask-position: center;
       mask-repeat: no-repeat;
     }
@@ -267,9 +272,6 @@
     .pin-layer {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      max-width: 900px;
-      margin: 0 auto;
-      aspect-ratio: 2.5 / 1;
       pointer-events: none; 
     }
 
@@ -327,13 +329,15 @@
       font-weight: 500;
     }
 
-    /* Koordinat Pin presisi untuk vektor baru */
-    .pin-pama { top: 48%; left: 54%; }
-    .pin-smg { top: 78%; left: 34%; }
-    .pin-bdg { top: 76%; left: 28%; }
+    /* KOORDINAT PRESISI KALIBRASI BARU */
+    .pin-pama { top: 38%; left: 48%; }
+    .pin-smg { top: 76.5%; left: 33.5%; }
+    .pin-bdg { top: 76%; left: 27.5%; }
     
-    /* Modifikasi label agar tidak bertumpuk */
-    .pin-smg .pin-label { transform: translateY(4.5rem); margin-bottom: 0; } 
+    /* Modifikasi arah label agar tidak bertumpuk */
+    .pin-bdg .pin-label { transform: translateX(-35%); }
+    .pin-smg .pin-label { transform: translateY(4.2rem) translateX(-10%); margin-bottom: 0; }
+    .pin-pama .pin-label { transform: translateX(10%); }
 
     /* --- PROJECTS & CERTIFICATIONS --- */
     .git-project-grid {
@@ -483,8 +487,7 @@
       .contact-grid { gap: 2rem; flex-direction: column; }
       .nav-links { display: none; } 
       .hero-title { font-size: 2.5rem; }
-      .pin-label { font-size: 0.6rem; padding: 0.2rem 0.4rem; }
-      .indonesia-map-wrapper, .pin-layer { aspect-ratio: 1.5 / 1; }
+      .pin-label { font-size: 0.65rem; padding: 0.2rem 0.4rem; }
     }
   </style>
 </head>
@@ -584,7 +587,7 @@
         Geographical Footprint
       </div>
       
-      <div style="position: relative;">
+      <div class="map-aspect-ratio-box">
         <div class="indonesia-map-wrapper"></div>
         
         <div class="pin-layer">
@@ -592,7 +595,7 @@
           <div class="map-pin pin-pama">
             <div class="pin-label">
               <span>Mine Survey Intern</span>
-              PT. Pamapersada Nusantara (PAMA)
+              PT. Pamapersada Nusantara
             </div>
             <i class="fa-solid fa-location-dot pin-icon"></i>
           </div>
@@ -600,13 +603,13 @@
           <div class="map-pin pin-smg">
             <i class="fa-solid fa-location-dot pin-icon"></i>
             <div class="pin-label">
-              <span>Diponegoro University & CV. Prawira</span>
+              <span>Diponegoro Univ & CV Prawira</span>
               Semarang, Central Java
             </div>
           </div>
 
           <div class="map-pin pin-bdg">
-            <div class="pin-label" style="transform: translateX(-40%);">
+            <div class="pin-label">
               <span>Surveyor Intern</span>
               Tellus Meridian Survey
             </div>
