@@ -31,6 +31,7 @@
       color: var(--text-gray); 
       line-height: 1.6; 
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     /* --- TOP NAVIGATION --- */
@@ -41,56 +42,58 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-gray);
       z-index: 100;
-      padding: 1rem 0;
+      padding: 1.2rem 0;
     }
+    /* Diperlebar menjadi 1400px agar Full Screen */
     .nav-container {
-      max-width: 1000px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .nav-logo {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--text-black);
       text-decoration: none;
       letter-spacing: -0.02em;
     }
-    .nav-links { list-style: none; display: flex; gap: 2rem; }
+    .nav-links { list-style: none; display: flex; gap: 2.5rem; }
     .nav-links a {
       color: var(--text-gray);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--corporate-blue); }
 
     /* --- GLOBAL CONTAINER --- */
+    /* Diperlebar menjadi 1400px agar Full Screen */
     .container {
-      max-width: 1000px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 5rem 2rem;
+      padding: 6rem 4rem;
     }
 
     /* --- HERO SECTION --- */
     .hero {
-      padding-top: 8rem;
+      padding-top: 9rem;
       padding-bottom: 6rem;
     }
     .hero-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 4rem;
+      gap: 6rem; /* Jarak antar teks dan foto diperlebar */
     }
     .hero-text {
       flex: 1;
     }
     .hero-eyebrow {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--corporate-blue);
       text-transform: uppercase;
@@ -99,7 +102,7 @@
       display: block;
     }
     .hero-title {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-size: clamp(3rem, 5vw, 5rem);
       font-weight: 700;
       color: var(--text-black);
       line-height: 1.1;
@@ -107,17 +110,17 @@
       margin-bottom: 1.5rem;
     }
     .hero-subtitle {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--text-gray);
-      max-width: 750px;
-      line-height: 1.7;
+      max-width: 800px;
+      line-height: 1.8;
       margin-bottom: 3rem;
       font-weight: 400;
     }
     .btn {
       display: inline-block;
-      padding: 0.8rem 2rem;
-      font-size: 0.9rem;
+      padding: 0.9rem 2.5rem;
+      font-size: 1rem;
       font-weight: 500;
       text-decoration: none;
       color: var(--bg-pure-white);
@@ -134,32 +137,33 @@
     .hero-image-container {
       flex-shrink: 0;
     }
+    /* Foto diperbesar untuk mengimbangi layar lebar */
     .hero-avatar {
-      width: 240px;
-      height: 240px;
+      width: 320px;
+      height: 320px;
       border-radius: 50%;
       object-fit: cover;
-      border: 5px solid var(--bg-off-white);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 6px solid var(--bg-off-white);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     /* --- SECTION TYPOGRAPHY --- */
     .section-header {
       border-bottom: 2px solid var(--text-black);
       padding-bottom: 1rem;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
     .section-title {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: var(--text-black);
       letter-spacing: -0.02em;
     }
     .section-number {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 500;
       color: var(--text-light);
     }
@@ -167,12 +171,12 @@
     /* --- TIMELINE --- */
     .timeline-compact {
       border-left: 2px solid var(--border-gray);
-      padding-left: 2rem;
+      padding-left: 2.5rem;
       margin-left: 0.5rem;
     }
     .timeline-item {
       position: relative;
-      margin-bottom: 3.5rem;
+      margin-bottom: 4rem;
     }
     .timeline-item:last-child {
       margin-bottom: 0;
@@ -180,8 +184,8 @@
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -2.35rem; 
-      top: 0.5rem;
+      left: -2.85rem; 
+      top: 0.6rem;
       width: 14px;
       height: 14px;
       border-radius: 50%;
@@ -193,77 +197,79 @@
       display: flex;
       align-items: center;
       gap: 1.2rem;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
     .timeline-logo {
-      width: 55px;
-      height: 55px;
+      width: 60px;
+      height: 60px;
       border-radius: 0.5rem;
       object-fit: cover;
       border: 1px solid var(--border-gray);
       background-color: var(--bg-off-white);
     }
     .timeline-title {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: var(--text-black);
       margin-bottom: 0.2rem;
     }
     .timeline-company {
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--corporate-blue);
     }
     
     .timeline-date {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: var(--text-light);
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
       font-weight: 500;
     }
     .timeline-desc {
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       color: var(--text-gray);
-      line-height: 1.6;
+      line-height: 1.7;
+      max-width: 900px;
     }
 
     /* --- MAP SECTION FULL RATIO --- */
     .map-container {
-      margin-top: 4rem;
+      margin-top: 5rem;
       background-color: var(--bg-off-white);
       border: 1px solid var(--border-gray);
       border-radius: 0.75rem;
-      padding: 0; /* Padding dihapus agar Full Ratio */
-      overflow: hidden; /* Agar sudut map mengikuti lengkungan container */
+      padding: 0; 
+      overflow: hidden; 
     }
     .map-title {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: var(--text-black);
-      padding: 1.5rem 1.5rem 1rem 1.5rem;
+      padding: 1.8rem 2rem 1.2rem 2rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
     #map {
       width: 100%;
-      aspect-ratio: 21 / 9; /* Rasio melebar penuh (Panoramic) */
-      min-height: 350px; /* Minimal tinggi agar di HP tetap terbaca */
+      aspect-ratio: 21 / 7; /* Lebar dan lega banget */
+      min-height: 400px; 
       z-index: 1;
       border-top: 1px solid var(--border-gray);
     }
 
     /* --- PROJECTS & CERTIFICATIONS --- */
+    /* Kolom card diperlebar */
     .git-project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
     }
     .git-card {
       background-color: var(--bg-off-white);
       border: 1px solid var(--border-gray);
       border-radius: 0.75rem;
-      padding: 1.5rem;
+      padding: 1.8rem;
       display: flex;
       flex-direction: column;
       transition: border-color 0.2s, box-shadow 0.2s;
@@ -277,42 +283,42 @@
     .git-card-header {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.75rem;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
     }
     .git-card-icon {
       color: var(--text-gray);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
     .git-card-title {
       color: var(--git-blue);
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 600;
       line-height: 1.3;
     }
     .git-card-desc {
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       color: var(--text-gray);
       flex-grow: 1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
       line-height: 1.6;
     }
     .git-card-footer {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
-      font-size: 0.8rem;
+      gap: 1.5rem;
+      font-size: 0.85rem;
       color: var(--text-gray);
       font-weight: 500;
     }
     .git-tag {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
     }
     .git-dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
     }
     .git-dot.blue { background-color: var(--git-blue); }
@@ -323,24 +329,24 @@
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
+      gap: 4rem;
     }
     .skill-category {
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text-black);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       border-bottom: 1px solid var(--border-gray);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.8rem;
     }
     .skill-list {
       list-style: none;
     }
     .skill-list li {
-      font-size: 0.95rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
       color: var(--text-gray);
     }
 
@@ -349,18 +355,18 @@
       background-color: var(--bg-off-white);
       border: 1px solid var(--border-gray);
       border-radius: 0.75rem;
-      padding: 4rem;
+      padding: 5rem;
       text-align: center;
     }
     .contact-grid {
       display: flex;
       justify-content: center;
-      gap: 4rem;
-      margin-top: 3rem;
+      gap: 5rem;
+      margin-top: 3.5rem;
       flex-wrap: wrap;
     }
     .contact-item h4 {
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--text-light);
       text-transform: uppercase;
@@ -368,7 +374,7 @@
       margin-bottom: 0.5rem;
     }
     .contact-item a, .contact-item p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 500;
       color: var(--text-black);
       text-decoration: none;
@@ -381,27 +387,30 @@
     /* --- FOOTER --- */
     footer {
       border-top: 1px solid var(--border-gray);
-      padding: 2rem;
+      padding: 2.5rem;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--text-light);
     }
 
-    /* --- RESPONSIVE DESIGN --- */
-    @media (max-width: 768px) {
+    /* --- RESPONSIVE DESIGN UNTUK HP & TABLET --- */
+    @media (max-width: 992px) {
+      .nav-container { padding: 0 2rem; }
+      .container { padding: 4rem 2rem; }
+      .hero { padding-top: 6rem; padding-bottom: 4rem; }
       .hero-content { 
         flex-direction: column-reverse; 
         text-align: center; 
-        gap: 2rem;
+        gap: 3rem;
       }
       .hero-eyebrow { margin-left: auto; margin-right: auto; }
       .hero-subtitle { margin-left: auto; margin-right: auto; }
       .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .contact-wrapper { padding: 2rem; }
-      .contact-grid { gap: 2rem; flex-direction: column; }
+      .contact-wrapper { padding: 3rem 2rem; }
+      .contact-grid { gap: 2.5rem; flex-direction: column; }
       .nav-links { display: none; } 
-      .hero-title { font-size: 2.5rem; }
-      #map { aspect-ratio: 1/1; } /* Agar map di HP berbentuk kotak */
+      .hero-title { font-size: 2.8rem; }
+      #map { aspect-ratio: 1/1; min-height: 300px; }
     }
   </style>
 </head>
@@ -432,7 +441,7 @@
       </div>
       
       <div class="hero-image-container">
-        <img src="profil.jpg" alt="Erwin Fernando" class="hero-avatar" onerror="this.src='https://via.placeholder.com/240?text=Profile+Photo'">
+        <img src="profil.jpg" alt="Erwin Fernando" class="hero-avatar" onerror="this.src='https://via.placeholder.com/320?text=Profile+Photo'">
       </div>
     </div>
   </header>
@@ -459,7 +468,7 @@
 
       <div class="timeline-item">
         <div class="timeline-header-group">
-          <img src="logo-pama.png" alt="Logo PAMA" class="timeline-logo" onerror="this.src='https://via.placeholder.com/55?text=PAMA'">
+          <img src="logo-pama.png" alt="Logo PAMA" class="timeline-logo" onerror="this.src='https://via.placeholder.com/60?text=PAMA'">
           <div>
             <h3 class="timeline-title">Mine Survey Intern</h3>
             <div class="timeline-company">PT. Pamapersada Nusantara (PAMA)</div>
@@ -471,7 +480,7 @@
 
       <div class="timeline-item">
         <div class="timeline-header-group">
-          <img src="logo-undip.png" alt="Logo Undip" class="timeline-logo" onerror="this.src='https://via.placeholder.com/55?text=UNDIP'">
+          <img src="logo-undip.png" alt="Logo Undip" class="timeline-logo" onerror="this.src='https://via.placeholder.com/60?text=UNDIP'">
           <div>
             <h3 class="timeline-title">Laboratory Assistant (Photogrammetry & Remote Sensing)</h3>
             <div class="timeline-company">Diponegoro University</div>
@@ -514,7 +523,7 @@
     <div class="timeline-compact">
       <div class="timeline-item" style="margin-bottom: 0;">
         <div class="timeline-header-group">
-          <img src="logo-undip.png" alt="Logo Undip" class="timeline-logo" onerror="this.src='https://via.placeholder.com/55?text=UNDIP'">
+          <img src="logo-undip.png" alt="Logo Undip" class="timeline-logo" onerror="this.src='https://via.placeholder.com/60?text=UNDIP'">
           <div>
             <h3 class="timeline-title">Diponegoro University</h3>
             <div class="timeline-company">Bachelor's Degree in Geodetic Engineering</div>
@@ -651,7 +660,7 @@
 
   <section id="contact" class="container" style="padding-top: 0;">
     <div class="contact-wrapper">
-      <h2 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Let's Connect</h2>
+      <h2 class="hero-title" style="font-size: 3rem; margin-bottom: 0.5rem;">Let's Connect</h2>
       <p class="hero-subtitle" style="margin: 0 auto;">Open for professional opportunities and discussions.</p>
       
       <div class="contact-grid">
@@ -681,14 +690,14 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script>
-    // Inisialisasi Peta Leaflet
+    // Inisialisasi Peta (Center di Indonesia)
     var map = L.map('map', {
-        scrollWheelZoom: false // Cegah zoom ga sengaja saat scroll
+        scrollWheelZoom: false // Mencegah zoom tidak sengaja saat di-scroll
     }).setView([-2.5489, 115.8284], 5);
 
-    // Tile Layer CartoDB Positron (Gaya Korporat)
+    // Base map CartoDB Positron (tema korporat bersih)
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       subdomains: 'abcd',
       maxZoom: 20
     }).addTo(map);
@@ -710,10 +719,10 @@
         desc: "<strong>Tellus Meridian Survey</strong><br>Surveyor Intern" 
       }
     ];
-    
+
     locations.forEach(function(loc) {
       var marker = L.marker(loc.coords).addTo(map);
-      marker.bindPopup("<div style='font-family: Inter, sans-serif;'><h4 style='margin:0 0 5px 0; color:#0F4C81; font-size:14px;'>" + loc.name + "</h4><p style='margin:0; font-size:12px;'>" + loc.desc + "</p></div>");
+      marker.bindPopup("<div style='font-family: Inter, sans-serif;'><h4 style='margin:0 0 5px 0; color:#0F4C81; font-size:15px;'>" + loc.name + "</h4><p style='margin:0; font-size:13px;'>" + loc.desc + "</p></div>");
     });
   </script>
 
