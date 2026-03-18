@@ -6,9 +6,10 @@
   <title>Erwin Fernando Junior Manurung | Professional Portfolio</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+
   <style>
     /* VARIABLES: Executive Minimalist Theme */
     :root {
@@ -130,7 +131,6 @@
       color: var(--text-black);
     }
     
-    /* Styling Foto Profil */
     .hero-image-container {
       flex-shrink: 0;
     }
@@ -164,7 +164,7 @@
       color: var(--text-light);
     }
 
-    /* --- TIMELINE (EXPERIENCE & EDUCATION) --- */
+    /* --- TIMELINE --- */
     .timeline-compact {
       border-left: 2px solid var(--border-gray);
       padding-left: 2rem;
@@ -227,6 +227,30 @@
       line-height: 1.6;
     }
 
+    /* --- MAP SECTION --- */
+    .map-container {
+      margin-top: 4rem;
+      background-color: var(--bg-off-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+    .map-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-black);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    #map {
+      height: 400px;
+      border-radius: 0.5rem;
+      z-index: 1; /* Mencegah map menutupi navbar */
+      border: 1px solid var(--border-gray);
+    }
+
     /* --- PROJECTS & CERTIFICATIONS --- */
     .git-project-grid {
       display: grid;
@@ -242,7 +266,7 @@
       flex-direction: column;
       transition: border-color 0.2s, box-shadow 0.2s;
       cursor: pointer;
-      text-decoration: none; /* For link cards */
+      text-decoration: none;
     }
     .git-card:hover {
       border-color: var(--git-blue);
@@ -375,6 +399,7 @@
       .contact-grid { gap: 2rem; flex-direction: column; }
       .nav-links { display: none; } 
       .hero-title { font-size: 2.5rem; }
+      #map { height: 300px; }
     }
   </style>
 </head>
@@ -467,6 +492,15 @@
       </div>
 
     </div>
+
+    <div class="map-container">
+      <div class="map-title">
+        <i class="fa-solid fa-map-location-dot" style="color: var(--corporate-blue);"></i>
+        Geographical Footprint
+      </div>
+      <div id="map"></div>
+    </div>
+
   </section>
 
   <section id="education" class="container" style="padding-top: 0;">
@@ -642,6 +676,48 @@
   <footer>
     &copy; 2026 Erwin Fernando Junior Manurung. All rights reserved.
   </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script>
+    // Inisialisasi Peta (Center di Indonesia)
+    var map = L.map('map', {
+        scrollWheelZoom: false // Mencegah peta ter-zoom tidak sengaja saat di-scroll
+    }).setView([-2.5489, 115.8284], 5);
+
+    // Menggunakan base map CartoDB Positron (tema abu-abu terang cocok untuk corporate)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
+
+    // Data Lokasi Pengalaman
+    var locations = [
+      { 
+        name: "Semarang, Jawa Tengah", 
+        coords: [-6.9932, 110.4203], 
+        desc: "<strong>Diponegoro University</strong><br>Lab Assistant & Student<br><br><strong>CV. Prawira Inti Nusa</strong><br>Freelance Surveyor" 
+      },
+      { 
+        name: "Kutai Kartanegara, Kalimantan Timur", 
+        coords: [-0.4286, 116.9804], 
+        desc: "<strong>PT. Pamapersada Nusantara (PAMA)</strong><br>Mine Survey Intern" 
+      },
+      { 
+        name: "Bandung, Jawa Barat", 
+        coords: [-6.9175, 107.6191], 
+        desc: "<strong>Tellus Meridian Survey</strong><br>Surveyor Intern" 
+      }
+    ];
+
+    // Custom Icon Leaflet bawaan tapi disesuaikan sedikit (opsional, di sini kita pakai bawaan)
+    
+    // Menambahkan Marker ke Peta
+    locations.forEach(function(loc) {
+      var marker = L.marker(loc.coords).addTo(map);
+      marker.bindPopup("<div style='font-family: Inter, sans-serif;'><h4 style='margin:0 0 5px 0; color:#0F4C81; font-size:14px;'>" + loc.name + "</h4><p style='margin:0; font-size:12px;'>" + loc.desc + "</p></div>");
+    });
+  </script>
 
 </body>
 </html>
