@@ -44,7 +44,6 @@
       z-index: 100;
       padding: 1.2rem 0;
     }
-    /* Diperlebar menjadi 1400px agar Full Screen */
     .nav-container {
       max-width: 1400px;
       margin: 0 auto;
@@ -71,7 +70,6 @@
     .nav-links a:hover { color: var(--corporate-blue); }
 
     /* --- GLOBAL CONTAINER --- */
-    /* Diperlebar menjadi 1400px agar Full Screen */
     .container {
       max-width: 1400px;
       margin: 0 auto;
@@ -80,48 +78,83 @@
 
     /* --- HERO SECTION --- */
     .hero {
-      padding-top: 9rem;
+      padding-top: 8rem;
       padding-bottom: 6rem;
     }
     .hero-content {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
-      justify-content: space-between;
-      gap: 6rem; /* Jarak antar teks dan foto diperlebar */
-    }
-    .hero-text {
-      flex: 1;
+      gap: 5rem;
     }
     .hero-eyebrow {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--corporate-blue);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 30px; height: 2px;
+      background-color: var(--corporate-blue);
       display: block;
     }
     .hero-title {
-      font-size: clamp(3rem, 5vw, 5rem);
+      font-size: clamp(3rem, 5vw, 4.5rem);
       font-weight: 700;
       color: var(--text-black);
       line-height: 1.1;
       letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
     .hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       color: var(--text-gray);
       max-width: 800px;
       line-height: 1.8;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       font-weight: 400;
+    }
+
+    /* Hero Tags */
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-tag {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border-gray);
+      color: var(--text-gray);
+      border-radius: 50px;
+      background: var(--bg-off-white);
+      transition: all 0.2s;
+    }
+    .hero-tag:hover {
+      border-color: var(--corporate-blue);
+      color: var(--corporate-blue);
+    }
+
+    /* Hero Buttons */
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
     }
     .btn {
       display: inline-block;
-      padding: 0.9rem 2.5rem;
-      font-size: 1rem;
-      font-weight: 500;
+      padding: 0.8rem 2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
       text-decoration: none;
       color: var(--bg-pure-white);
       background-color: var(--text-black);
@@ -130,22 +163,112 @@
       transition: all 0.2s;
     }
     .btn:hover {
-      background-color: var(--bg-pure-white);
+      background-color: var(--corporate-blue);
+      border-color: var(--corporate-blue);
+    }
+    .btn-outline {
+      background-color: transparent;
       color: var(--text-black);
+      border: 1px solid var(--border-gray);
     }
-    
-    .hero-image-container {
-      flex-shrink: 0;
+    .btn-outline:hover {
+      background-color: var(--bg-off-white);
+      color: var(--text-black);
+      border-color: var(--text-black);
     }
-    /* Foto diperbesar untuk mengimbangi layar lebar */
-    .hero-avatar {
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid var(--bg-off-white);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+    /* Social Links */
+    .socials {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
     }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg-pure-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 0.3rem;
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .social-link:hover {
+      color: var(--corporate-blue);
+      border-color: var(--corporate-blue);
+    }
+
+    /* Hero Right Card (Experience) */
+    .hero-exp-card {
+      background: var(--bg-pure-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      position: relative;
+    }
+    .hero-exp-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--corporate-blue);
+    }
+    .hero-exp-header {
+      padding: 1.5rem 1.8rem;
+      border-bottom: 1px solid var(--border-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-off-white);
+    }
+    .hero-exp-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+    }
+    .hero-exp-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      background: rgba(15, 76, 129, 0.08);
+      color: var(--corporate-blue);
+      border-radius: 3px;
+    }
+    .hero-exp-item {
+      padding: 1.5rem 1.8rem;
+      border-bottom: 1px solid var(--border-gray);
+      transition: background 0.2s;
+    }
+    .hero-exp-item:hover { background: var(--bg-off-white); }
+    .hero-exp-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.4rem;
+    }
+    .hero-exp-org { font-size: 1.05rem; font-weight: 700; color: var(--text-black); }
+    .hero-exp-period { font-size: 0.8rem; font-weight: 500; color: var(--text-light); }
+    .hero-exp-role { font-size: 0.9rem; color: var(--corporate-blue); font-weight: 600; margin-bottom: 0.5rem; }
+    .hero-exp-desc { font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; }
+    .hero-exp-more {
+      display: block;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--corporate-blue);
+      text-decoration: none;
+      background: var(--bg-pure-white);
+      transition: background 0.2s;
+    }
+    .hero-exp-more:hover { background: var(--bg-off-white); }
 
     /* --- SECTION TYPOGRAPHY --- */
     .section-header {
@@ -252,14 +375,13 @@
     }
     #map {
       width: 100%;
-      aspect-ratio: 21 / 7; /* Lebar dan lega banget */
+      aspect-ratio: 21 / 7;
       min-height: 400px; 
       z-index: 1;
       border-top: 1px solid var(--border-gray);
     }
 
     /* --- PROJECTS & CERTIFICATIONS --- */
-    /* Kolom card diperlebar */
     .git-project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -331,23 +453,48 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 4rem;
     }
-    .skill-category {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-black);
-      margin-bottom: 1.8rem;
+    .tools-col-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--corporate-blue);
+      margin-bottom: 1.5rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      border-bottom: 1px solid var(--border-gray);
+      border-bottom: 2px solid var(--border-gray);
       padding-bottom: 0.8rem;
     }
-    .skill-list {
-      list-style: none;
+    .tool-item {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border-gray);
     }
-    .skill-list li {
-      font-size: 1.05rem;
-      margin-bottom: 1rem;
+    .tool-item:last-child {
+      border-bottom: none;
+    }
+    .tool-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 0.8rem;
+      flex-shrink: 0;
+    }
+    .tool-dot.adv { background-color: #f97316; } /* Orange */
+    .tool-dot.int { background-color: var(--git-blue); } /* Blue */
+    .tool-dot.bas { background-color: var(--text-light); } /* Gray */
+    
+    .tool-name {
+      font-size: 0.95rem;
+      color: var(--text-black);
+      flex: 1;
+      font-weight: 500;
+    }
+    .tool-level {
+      font-size: 0.75rem;
+      font-weight: 600;
       color: var(--text-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     /* --- CONTACT SECTION --- */
@@ -399,12 +546,17 @@
       .container { padding: 4rem 2rem; }
       .hero { padding-top: 6rem; padding-bottom: 4rem; }
       .hero-content { 
-        flex-direction: column-reverse; 
+        grid-template-columns: 1fr;
         text-align: center; 
         gap: 3rem;
       }
-      .hero-eyebrow { margin-left: auto; margin-right: auto; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-eyebrow::before { display: none; }
       .hero-subtitle { margin-left: auto; margin-right: auto; }
+      .hero-tags { justify-content: center; }
+      .hero-cta { justify-content: center; }
+      .socials { justify-content: center; }
+      
       .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
       .contact-wrapper { padding: 3rem 2rem; }
       .contact-grid { gap: 2.5rem; flex-direction: column; }
@@ -431,18 +583,68 @@
 
   <header class="container hero">
     <div class="hero-content">
+      
       <div class="hero-text">
-        <span class="hero-eyebrow">Professional Portfolio</span>
+        <span class="hero-eyebrow">Geodetic Engineering · Surveying</span>
         <h1 class="hero-title">Erwin Fernando<br>Junior Manurung</h1>
         <p class="hero-subtitle">
           Geodetic Engineering graduate combining practical expertise in mine surveying with strong academic leadership. Proficient in utilizing GNSS, TLS, and UAV technologies for precise topographic mapping and spatial data analysis.
         </p>
-        <a href="#contact" class="btn">Get in Touch</a>
+
+        <div class="hero-tags">
+          <span class="hero-tag">Mine Surveying</span>
+          <span class="hero-tag">UAV Photogrammetry</span>
+          <span class="hero-tag">GNSS & TLS</span>
+          <span class="hero-tag">Spatial Analysis</span>
+          <span class="hero-tag">Data Processing</span>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn">Get in Touch</a>
+          <a href="https://linkedin.com/in/erwinfernando" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+        </div>
+
+        <div class="socials">
+          <a href="mailto:erwin.fernandojr@gmail.com" class="social-link">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+          <a href="https://github.com/erwinfernandjr" class="social-link" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </div>
       </div>
       
-      <div class="hero-image-container">
-        <img src="profil.jpg" alt="Erwin Fernando" class="hero-avatar" onerror="this.src='https://via.placeholder.com/320?text=Profile+Photo'">
+      <div class="hero-right">
+        <div class="hero-exp-card">
+          <div class="hero-exp-header">
+            <span class="hero-exp-title">Professional Experience</span>
+            <span class="hero-exp-badge">Recent Roles</span>
+          </div>
+          
+          <div class="hero-exp-item">
+            <div class="hero-exp-item-top">
+              <span class="hero-exp-org">CV. Prawira Inti Nusa</span>
+              <span class="hero-exp-period">Oct 2025 – Present</span>
+            </div>
+            <div class="hero-exp-role">Freelance Surveyor</div>
+            <div class="hero-exp-desc">Topographic surveys, boundary mapping, and structural alignment using CHCNAV GNSS & total station.</div>
+          </div>
+          
+          <div class="hero-exp-item">
+            <div class="hero-exp-item-top">
+              <span class="hero-exp-org">PT. Pamapersada Nusantara</span>
+              <span class="hero-exp-period">Jun – Aug 2025</span>
+            </div>
+            <div class="hero-exp-role">Mine Survey Intern</div>
+            <div class="hero-exp-desc">Daily pit surface surveys using RIEGL TLS and Trimble GNSS, generating terrain models for volumetric calculations.</div>
+          </div>
+          
+          <a href="#experience" class="hero-exp-more">
+            See All Experience ▾
+          </a>
+        </div>
       </div>
+
     </div>
   </header>
 
@@ -620,41 +822,99 @@
 
   <section id="skills" class="container" style="padding-top: 0;">
     <div class="section-header">
-      <h2 class="section-title">Core Expertise</h2>
+      <h2 class="section-title">Technical Competencies</h2>
       <span class="section-number">04</span>
     </div>
 
     <div class="skills-grid">
-      <div>
-        <h3 class="skill-category">Surveying & Photogrammetry</h3>
-        <ul class="skill-list">
-          <li>UAV Mapping</li>
-          <li>GNSS Surveying</li>
-          <li>Terrestrial Laser Scanning (TLS)</li>
-          <li>LiDAR Data Acquisition</li>
-          <li>Boundary Mapping</li>
-        </ul>
+      
+      <div class="tools-col">
+        <div class="tools-col-title">Surveying & Photogrammetry</div>
+        <div class="tool-item">
+          <div class="tool-dot adv"></div>
+          <span class="tool-name">UAV Mapping</span>
+          <span class="tool-level">Advanced</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot adv"></div>
+          <span class="tool-name">GNSS Surveying</span>
+          <span class="tool-level">Advanced</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot adv"></div>
+          <span class="tool-name">Boundary Mapping</span>
+          <span class="tool-level">Advanced</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot int"></div>
+          <span class="tool-name">Terrestrial Laser Scanning</span>
+          <span class="tool-level">Intermediate</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot int"></div>
+          <span class="tool-name">LiDAR Data Acquisition</span>
+          <span class="tool-level">Intermediate</span>
+        </div>
       </div>
-      <div>
-        <h3 class="skill-category">Software & Processing</h3>
-        <ul class="skill-list">
-          <li>ArcGIS & QGIS</li>
-          <li>AutoCAD Civil 3D & MAP</li>
-          <li>12D Model</li>
-          <li>TerraSolid & RiScan Pro</li>
-          <li>Agisoft Metashape & Pix4D</li>
-          <li>DJI Terra & Trimble Business Center</li>
-        </ul>
+
+      <div class="tools-col">
+        <div class="tools-col-title">Software & Processing</div>
+        <div class="tool-item">
+          <div class="tool-dot adv"></div>
+          <span class="tool-name">ArcGIS & QGIS</span>
+          <span class="tool-level">Advanced</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot adv"></div>
+          <span class="tool-name">Agisoft Metashape</span>
+          <span class="tool-level">Advanced</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot int"></div>
+          <span class="tool-name">AutoCAD Civil 3D & MAP</span>
+          <span class="tool-level">Intermediate</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot int"></div>
+          <span class="tool-name">12D Model</span>
+          <span class="tool-level">Intermediate</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot int"></div>
+          <span class="tool-name">TerraSolid & RiScan Pro</span>
+          <span class="tool-level">Intermediate</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot int"></div>
+          <span class="tool-name">DJI Terra & TBC</span>
+          <span class="tool-level">Intermediate</span>
+        </div>
       </div>
-      <div>
-        <h3 class="skill-category">Analysis & Programming</h3>
-        <ul class="skill-list">
-          <li>Spatial Analysis</li>
-          <li>Google Earth Engine (GEE)</li>
-          <li>Python (GeoPandas, Folium)</li>
-          <li>Remote Sensing</li>
-        </ul>
+
+      <div class="tools-col">
+        <div class="tools-col-title">Analysis & Programming</div>
+        <div class="tool-item">
+          <div class="tool-dot adv"></div>
+          <span class="tool-name">Spatial Analysis</span>
+          <span class="tool-level">Advanced</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot adv"></div>
+          <span class="tool-name">Remote Sensing</span>
+          <span class="tool-level">Advanced</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot int"></div>
+          <span class="tool-name">Google Earth Engine (GEE)</span>
+          <span class="tool-level">Intermediate</span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-dot int"></div>
+          <span class="tool-name">Python (GeoPandas, YOLO)</span>
+          <span class="tool-level">Intermediate</span>
+        </div>
       </div>
+
     </div>
   </section>
 
