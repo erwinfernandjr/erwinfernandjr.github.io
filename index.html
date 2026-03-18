@@ -88,34 +88,46 @@
       gap: 5rem;
     }
     
-    /* Foto Profil Avatar Mini */
-    .hero-avatar-small {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--bg-off-white);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--corporate-blue);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 1.2rem;
+    /* GAYA BARU: PROFILE BADGE DI HERO */
+    .hero-intro-group {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1rem 0.5rem 0.5rem;
+      background: var(--bg-off-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 50px;
+      width: fit-content;
     }
-    .hero-eyebrow::before {
-      content: '';
-      width: 30px; height: 2px;
-      background-color: var(--corporate-blue);
-      display: block;
+    .hero-avatar-mini {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--bg-pure-white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
+    .hero-intro-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding-right: 0.5rem;
+    }
+    .hero-greeting {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-black);
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--corporate-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0;
+    }
+
     .hero-title {
       font-size: clamp(3rem, 5vw, 4.5rem);
       font-weight: 700;
@@ -147,7 +159,7 @@
       border: 1px solid var(--border-gray);
       color: var(--text-gray);
       border-radius: 50px;
-      background: var(--bg-off-white);
+      background: var(--bg-pure-white);
       transition: all 0.2s;
     }
     .hero-tag:hover {
@@ -562,9 +574,15 @@
         text-align: center; 
         gap: 3rem;
       }
-      .hero-avatar-small { margin-left: auto; margin-right: auto; }
-      .hero-eyebrow { justify-content: center; }
-      .hero-eyebrow::before { display: none; }
+      .hero-intro-group {
+        margin: 0 auto 1.5rem auto;
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        padding: 0;
+      }
+      .hero-avatar-mini { width: 90px; height: 90px; }
+      .hero-intro-text { padding: 0; align-items: center; }
       .hero-subtitle { margin-left: auto; margin-right: auto; }
       .hero-tags { justify-content: center; }
       .hero-cta { justify-content: center; }
@@ -599,9 +617,14 @@
       
       <div class="hero-text">
         
-        <img src="profil.jpg" alt="Erwin Fernando" class="hero-avatar-small" onerror="this.src='https://via.placeholder.com/150?text=Profile'">
-        
-        <span class="hero-eyebrow">Geodetic Engineering · Surveying</span>
+        <div class="hero-intro-group">
+          <img src="profil.jpg" alt="Erwin Fernando" class="hero-avatar-mini" onerror="this.src='https://via.placeholder.com/80?text=EF'">
+          <div class="hero-intro-text">
+            <span class="hero-greeting">Hello, welcome to my portfolio! 👋</span>
+            <span class="hero-eyebrow">Geodetic Engineering · Surveying</span>
+          </div>
+        </div>
+
         <h1 class="hero-title">Erwin Fernando<br>Junior Manurung</h1>
         <p class="hero-subtitle">
           Geodetic Engineering graduate combining practical expertise in mine surveying with strong academic leadership. Proficient in utilizing GNSS, TLS, and UAV technologies for precise topographic mapping and spatial data analysis.
