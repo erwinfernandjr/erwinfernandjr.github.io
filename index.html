@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+
   <style>
     /* VARIABLES: Executive Minimalist Theme */
     :root {
@@ -19,7 +21,6 @@
       --border-gray: #E5E7EB;
       --corporate-blue: #0F4C81; 
       --git-blue: #3b82f6; 
-      --map-pin: #ef4444; 
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -226,118 +227,29 @@
       line-height: 1.6;
     }
 
-    /* --- STATIC INFOGRAPHIC MAP SECTION --- */
+    /* --- MAP SECTION --- */
     .map-container {
       margin-top: 4rem;
       background-color: var(--bg-off-white);
       border: 1px solid var(--border-gray);
       border-radius: 0.75rem;
-      padding: 2rem;
-      position: relative;
+      padding: 1.5rem;
     }
     .map-title {
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--text-black);
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
-    
-    /* WADAH PETA DENGAN RASIO PAS AGAR KOORDINAT TIDAK LARI */
-    .map-aspect-ratio-box {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      aspect-ratio: 1000 / 348; /* Rasio akurat sesuai ukuran vector mask-nya */
-    }
-
-    .indonesia-map-wrapper {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: #27374D; /* Warna abu-abu gelap siluet pulau */
-      -webkit-mask-image: url('https://cdn.jsdelivr.net/gh/djaiss/mapsicon@master/all/id/vector.svg');
-      -webkit-mask-size: 100% 100%;
-      -webkit-mask-position: center;
-      -webkit-mask-repeat: no-repeat;
-      mask-image: url('https://cdn.jsdelivr.net/gh/djaiss/mapsicon@master/all/id/vector.svg');
-      mask-size: 100% 100%;
-      mask-position: center;
-      mask-repeat: no-repeat;
-    }
-
-    /* Overlay Pin container agar pin berada di atas siluet */
-    .pin-layer {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none; 
-    }
-
-    /* Pin & Label Styles */
-    .map-pin {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transform: translate(-50%, -100%);
-      z-index: 10;
-    }
-    .pin-icon {
-      color: var(--map-pin);
-      font-size: 1.5rem;
-      filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
-      position: relative;
-      z-index: 2;
-    }
-    
-    /* Efek denyut (Pulse) */
-    .pin-icon::after {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 100%; height: 100%;
-      background-color: var(--map-pin);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-      animation: pulseMap 2s infinite;
-    }
-    @keyframes pulseMap {
-      0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
-      100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
-    }
-    
-    .pin-label {
-      background: rgba(255, 255, 255, 0.95);
+    #map {
+      height: 400px;
+      border-radius: 0.5rem;
+      z-index: 1; /* Mencegah map menutupi navbar */
       border: 1px solid var(--border-gray);
-      padding: 0.4rem 0.8rem;
-      border-radius: 0.4rem;
-      font-size: 0.75rem;
-      color: var(--text-black);
-      font-weight: 600;
-      white-space: nowrap;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      margin-bottom: 0.5rem; 
-      position: relative;
     }
-    .pin-label span {
-      display: block;
-      font-size: 0.65rem;
-      color: var(--corporate-blue);
-      font-weight: 500;
-    }
-
-    /* KOORDINAT PRESISI KALIBRASI BARU */
-    .pin-pama { top: 38%; left: 48%; }
-    .pin-smg { top: 76.5%; left: 33.5%; }
-    .pin-bdg { top: 76%; left: 27.5%; }
-    
-    /* Modifikasi arah label agar tidak bertumpuk */
-    .pin-bdg .pin-label { transform: translateX(-35%); }
-    .pin-smg .pin-label { transform: translateY(4.2rem) translateX(-10%); margin-bottom: 0; }
-    .pin-pama .pin-label { transform: translateX(10%); }
 
     /* --- PROJECTS & CERTIFICATIONS --- */
     .git-project-grid {
@@ -487,7 +399,7 @@
       .contact-grid { gap: 2rem; flex-direction: column; }
       .nav-links { display: none; } 
       .hero-title { font-size: 2.5rem; }
-      .pin-label { font-size: 0.65rem; padding: 0.2rem 0.4rem; }
+      #map { height: 300px; }
     }
   </style>
 </head>
@@ -586,38 +498,7 @@
         <i class="fa-solid fa-map-location-dot" style="color: var(--corporate-blue);"></i>
         Geographical Footprint
       </div>
-      
-      <div class="map-aspect-ratio-box">
-        <div class="indonesia-map-wrapper"></div>
-        
-        <div class="pin-layer">
-          
-          <div class="map-pin pin-pama">
-            <div class="pin-label">
-              <span>Mine Survey Intern</span>
-              PT. Pamapersada Nusantara
-            </div>
-            <i class="fa-solid fa-location-dot pin-icon"></i>
-          </div>
-
-          <div class="map-pin pin-smg">
-            <i class="fa-solid fa-location-dot pin-icon"></i>
-            <div class="pin-label">
-              <span>Diponegoro Univ & CV Prawira</span>
-              Semarang, Central Java
-            </div>
-          </div>
-
-          <div class="map-pin pin-bdg">
-            <div class="pin-label">
-              <span>Surveyor Intern</span>
-              Tellus Meridian Survey
-            </div>
-            <i class="fa-solid fa-location-dot pin-icon"></i>
-          </div>
-
-        </div>
-      </div>
+      <div id="map"></div>
     </div>
 
   </section>
@@ -795,6 +676,48 @@
   <footer>
     &copy; 2026 Erwin Fernando Junior Manurung. All rights reserved.
   </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script>
+    // Inisialisasi Peta (Center di Indonesia)
+    var map = L.map('map', {
+        scrollWheelZoom: false // Mencegah peta ter-zoom tidak sengaja saat di-scroll
+    }).setView([-2.5489, 115.8284], 5);
+
+    // Menggunakan base map CartoDB Positron (tema abu-abu terang cocok untuk corporate)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
+
+    // Data Lokasi Pengalaman
+    var locations = [
+      { 
+        name: "Semarang, Jawa Tengah", 
+        coords: [-6.9932, 110.4203], 
+        desc: "<strong>Diponegoro University</strong><br>Lab Assistant & Student<br><br><strong>CV. Prawira Inti Nusa</strong><br>Freelance Surveyor" 
+      },
+      { 
+        name: "Kutai Kartanegara, Kalimantan Timur", 
+        coords: [-0.4286, 116.9804], 
+        desc: "<strong>PT. Pamapersada Nusantara (PAMA)</strong><br>Mine Survey Intern" 
+      },
+      { 
+        name: "Bandung, Jawa Barat", 
+        coords: [-6.9175, 107.6191], 
+        desc: "<strong>Tellus Meridian Survey</strong><br>Surveyor Intern" 
+      }
+    ];
+
+    // Custom Icon Leaflet bawaan tapi disesuaikan sedikit (opsional, di sini kita pakai bawaan)
+    
+    // Menambahkan Marker ke Peta
+    locations.forEach(function(loc) {
+      var marker = L.marker(loc.coords).addTo(map);
+      marker.bindPopup("<div style='font-family: Inter, sans-serif;'><h4 style='margin:0 0 5px 0; color:#0F4C81; font-size:14px;'>" + loc.name + "</h4><p style='margin:0; font-size:12px;'>" + loc.desc + "</p></div>");
+    });
+  </script>
 
 </body>
 </html>
