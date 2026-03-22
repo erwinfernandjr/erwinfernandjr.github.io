@@ -48,7 +48,7 @@
 
     /* --- TOP NAVIGATION --- */
     nav {
-      position: fixed; /* Fixed untuk efek glassmorphism */
+      position: fixed;
       top: 0; left: 0; right: 0;
       background-color: var(--bg-pure-white);
       z-index: 100;
@@ -56,12 +56,11 @@
       transition: all 0.3s ease;
       border-bottom: 1px solid transparent;
     }
-    /* Class yang ditambahkan via JS saat di-scroll */
     nav.nav-scrolled {
       background-color: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-gray);
-      padding: 0.8rem 0; /* Sedikit mengecil saat di-scroll */
+      padding: 0.8rem 0;
       box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     }
 
@@ -99,7 +98,7 @@
 
     /* --- HERO SECTION --- */
     .hero {
-      padding-top: 10rem; /* Ditambah sedikit karena nav sekarang fixed */
+      padding-top: 10rem;
       padding-bottom: 4rem;
     }
     .hero-content {
@@ -428,19 +427,6 @@
       z-index: 1;
       border-top: 1px solid var(--border-gray);
     }
-    /* Kustomisasi Pin Peta */
-    .custom-map-pin {
-      background-color: var(--corporate-blue);
-      border: 2px solid var(--bg-pure-white);
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(15, 76, 129, 0.4); }
-      70% { box-shadow: 0 0 0 10px rgba(15, 76, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(15, 76, 129, 0); }
-    }
 
     /* --- PROJECTS & CERTIFICATIONS --- */
     .git-project-grid {
@@ -669,22 +655,20 @@
 
         <h1 class="hero-title">Erwin Fernando<br>Junior Manurung</h1>
         <p class="hero-subtitle">
-          Geodetic Engineering graduate combining practical expertise in mine surveying with strong academic leadership. Proficient in utilizing GNSS, TLS, and UAV technologies for precise topographic mapping and spatial data analysis.
+          Geodetic Engineering graduate combining practical expertise in mine surveying, cadastral mapping, and spatial data analysis. Proficient in utilizing GNSS, Terrestrial Laser Scanners (TLS), and UAV technologies, with a strong academic background in photogrammetry and remote sensing. Experienced in integrating surveying data with deep learning (YOLO) and GIS workflows for advanced spatial modeling.
         </p>
 
         <div class="hero-tags">
           <span class="hero-tag">Mine Surveying</span>
           <span class="hero-tag">UAV Photogrammetry</span>
           <span class="hero-tag">GNSS & TLS</span>
+          <span class="hero-tag">Cadastral Mapping</span>
           <span class="hero-tag">Spatial Analysis</span>
-          <span class="hero-tag">Data Processing</span>
         </div>
 
         <div class="hero-cta">
           <a href="#contact" class="btn">Get in Touch</a>
-          <!-- TOMBOL DOWNLOAD CV BARU -->
-          <!-- Ganti link-cv-kamu.pdf dengan file PDF aslimu di Github -->
-          <a href="link-cv-kamu.pdf" target="_blank" class="btn btn-outline">
+          <a href="https://drive.google.com/file/d/1Fj3iNHARpHCTM9tbMrmxteDkNIswKlDq/view?usp=sharing" target="_blank" class="btn btn-outline">
             <i class="fa-solid fa-download"></i> Download CV
           </a>
         </div>
@@ -755,7 +739,7 @@
           </div>
         </div>
         <div class="timeline-date">Oct 2025 – Present</div>
-        <p class="timeline-desc">Performed topographic surveys using CHCNAV GNSS for boundary mapping, elevation profiling, and site planning. Conducted verticality and alignment measurements using total station for structural and construction quality control. Acquired aerial imagery using the DJI Phantom 4 Pro.</p>
+        <p class="timeline-desc">Performed topographic surveys using CHCNAV GNSS for boundary mapping, elevation profiling, and site planning. Conducted verticality and alignment measurements using total station for structural and construction quality control. Acquired aerial imagery using the DJI Phantom 4 Pro for mapping, orthophoto generation, and surface condition assessment.</p>
       </div>
 
       <div class="timeline-item">
@@ -767,7 +751,7 @@
           </div>
         </div>
         <div class="timeline-date">Jun 2025 – Aug 2025</div>
-        <p class="timeline-desc">Conducted daily pit surface surveys using RIEGL TLS and Trimble GNSS, and acquired orthophotos using a UAV. Processed topographic data, generated terrain models, and performed volumetric calculations using 12d Model. Completed internship project on UAV-based haul road geometry evaluation.</p>
+        <p class="timeline-desc">Conducted daily pit surface surveys using RIEGL TLS and Trimble GNSS, and acquired orthophotos using a UAV. Processed topographic data, generated terrain models, and performed volumetric calculations using 12d Model. Completed internship project on UAV-based haul road geometry evaluation for PAMA ABKL.</p>
       </div>
 
       <div class="timeline-item">
@@ -775,11 +759,11 @@
           <img src="logo-undip.png" alt="Logo Undip" class="timeline-logo" onerror="this.src='https://via.placeholder.com/60?text=UNDIP'">
           <div>
             <h3 class="timeline-title">Laboratory Assistant (Photogrammetry & Remote Sensing)</h3>
-            <div class="timeline-company">Diponegoro University</div>
+            <div class="timeline-company">Geodetic Engineering Department, Diponegoro University</div>
           </div>
         </div>
         <div class="timeline-date">Aug 2024 – Aug 2025</div>
-        <p class="timeline-desc">Coordinated the execution of photogrammetry and remote sensing practical sessions based on module guidelines. Prepared teaching materials, supervised data processing activities during practicum sessions, and evaluated student performance through structured assessments.</p>
+        <p class="timeline-desc">Coordinated the execution of photogrammetry and remote sensing practical sessions based on module guidelines. Prepared teaching materials and supervised data processing activities during practicum sessions. Developed practical guidebooks and evaluated student performance through structured assessments.</p>
       </div>
 
       <div class="timeline-item">
@@ -790,8 +774,32 @@
             <div class="timeline-company">Tellus Meridian Survey</div>
           </div>
         </div>
-        <div class="timeline-date">Jan 2024 – Feb 2024</div>
+        <div class="timeline-date">Jan 2025 – Feb 2025</div>
         <p class="timeline-desc">Conducted LiDAR data acquisition using the DJI Matrice 350 drone system for topographic mapping. Processed and classified point cloud data using TerraSolid for analysis and visualization. Generated elevation models and contour maps from processed LiDAR datasets.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header-group">
+          <img src="logo-undip.png" alt="Logo Undip" class="timeline-logo" onerror="this.src='https://via.placeholder.com/60?text=UNDIP'">
+          <div>
+            <h3 class="timeline-title">Student Assistant of IABEE</h3>
+            <div class="timeline-company">Geodetic Engineering Department, Diponegoro University</div>
+          </div>
+        </div>
+        <div class="timeline-date">Apr 2024 – Dec 2024</div>
+        <p class="timeline-desc">Assisted in preparing documentation portfolios for fundamental science courses to support accreditation requirements. Organized, compiled, and uploaded digital evidence materials to cloud storage systems. Supported the preparation of preliminary accreditation improvement reports and related documents.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header-group">
+          <img src="logo-martin.png" alt="Logo Martin" class="timeline-logo" onerror="this.style.display='none'">
+          <div>
+            <h3 class="timeline-title">Survey and Mapping Intern</h3>
+            <div class="timeline-company">Kantor Jasa Survey Berlisensi Martin</div>
+          </div>
+        </div>
+        <div class="timeline-date">Jan 2024 – Feb 2024</div>
+        <p class="timeline-desc">Assisted in cadastral mapping and boundary verification for land certification processes. Operated GNSS equipment for precise point positioning in urban environments. Drafted survey reports and digitized spatial data using AutoCAD MAP/ArcGIS.</p>
       </div>
 
     </div>
@@ -824,7 +832,11 @@
           </div>
         </div>
         <div class="timeline-date">Aug 2022 – Apr 2026</div>
-        <p class="timeline-desc"><strong>GPA: 3.58 / 4.00</strong><br>Focused on terrestrial surveying, GNSS, UAV photogrammetry, spatial data analysis, and advanced remote sensing techniques.</p>
+        <p class="timeline-desc">
+          <strong>GPA: 3.58 / 4.00</strong><br>
+          Focused on terrestrial surveying, GNSS, UAV photogrammetry, spatial data analysis, and advanced remote sensing techniques.<br><br>
+          <strong>Final Project:</strong> Mapping Road Criticality Conditions Based on Unmanned Aerial Vehicle (UAV) Using the Surface Distress Index (SDI) and Pavement Condition Index (PCI) Methods.
+        </p>
       </div>
     </div>
   </section>
@@ -1093,7 +1105,7 @@
       { 
         name: "Semarang, Jawa Tengah", 
         coords: [-6.9932, 110.4203], 
-        desc: "<strong>Diponegoro University</strong><br>Lab Assistant<br><br><strong>CV. Prawira Inti Nusa</strong><br>Freelance Surveyor" 
+        desc: "<strong>Diponegoro University</strong><br>Lab Assistant & IABEE<br><br><strong>CV. Prawira Inti Nusa</strong><br>Freelance Surveyor" 
       },
       { 
         name: "Kutai Kartanegara, Kaltim", 
@@ -1104,6 +1116,11 @@
         name: "Bandung, Jawa Barat", 
         coords: [-6.9175, 107.6191], 
         desc: "<strong>Tellus Meridian Survey</strong><br>Surveyor Intern" 
+      },
+      { 
+        name: "North Jakarta, Jakarta", 
+        coords: [-6.1384, 106.8640], 
+        desc: "<strong>Kantor Jasa Survey Berlisensi Martin</strong><br>Survey and Mapping Intern" 
       }
     ];
 
